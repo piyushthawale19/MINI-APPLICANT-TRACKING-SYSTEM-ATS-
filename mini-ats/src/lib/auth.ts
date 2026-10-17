@@ -2,8 +2,11 @@ import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import type { AuthUser } from '@/types';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production-at-least-32-chars';
-const secretKey = new TextEncoder().encode(JWT_SECRET);
+const JWT_SECRET = process.env.JWT_SECRET || '';
+if (!JWT_SECRET && process.env.NODE_ENV === 'production') {
+  console.warn('WARNING: JWT_SECRET environment variable is not defined.');
+}
+const secretKey = new TextEncoder().encode(JWT_SECRET || 'ats-development-session-signing-fallback-key');
 const COOKIE_NAME = 'ats_token';
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 

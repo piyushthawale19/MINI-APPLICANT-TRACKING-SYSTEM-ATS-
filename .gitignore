@@ -1,0 +1,9 @@
+# MongoDB local data
+.mongodb_data/
+
+# Environment files
+.env*
+.env.local
+
+# Node modules
+node_modules/
