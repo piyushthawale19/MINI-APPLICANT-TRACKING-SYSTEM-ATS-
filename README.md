@@ -45,7 +45,7 @@ cp .env.local .env.local.example
 **Example**:
 ```env
 MONGODB_URI=mongodb://localhost:27017/earljobs-ats
-JWT_SECRET=super-secret-jwt-key-change-this-to-something-secure-32-chars-min
+JWT_SECRET=super-secret-jwt-key-change-this-to
 ```
 
 ### 4. (Optional) Seed Demo Data
